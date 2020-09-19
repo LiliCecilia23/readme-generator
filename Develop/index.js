@@ -1,5 +1,5 @@
-const inquirer = require(inquirer);
-const fs = require(fs);
+const inquirer = require('inquirer');
+const fs = require('fs');
 
 // array of questions for user
 // const questions = [
@@ -57,9 +57,37 @@ inquirer
 
     const {title, description, tableOfContents, installation, usage, license, contribution, test, github, email, instructions} = answers;
 
-    let doc = `#${title} \n
-    
-    
+    let doc = `
+        # title \n
+        \n
+        ${description}
+        \n
+        ## Table of Contents \n
+        * ${tableOfContents}
+        \n
+        ## Installation Instructions \n
+        \`\`\`
+        ${installation}
+        \`\`\`
+        \n
+        ## Instructions for Use \n
+        \`\`\`
+        ${usage}
+        \`\`\`
+        \n
+        ## Contribution Guidlines \n
+        ${contribution}
+        \n
+        ## Testing Instructions \n
+        ${test}
+        \n
+        ## Questions \n
+        * Github Username: ${github}
+        * Email: ${email}
+        * ${instructions}
+        \n
+        ## License\n
+        ${license}
     `;
 
               
@@ -70,16 +98,16 @@ inquirer
             console.log("file complete!")
         }
     })
-
+});
 
 // function to write README file
-function writeToFile(fileName, data) {
-}
+// function writeToFile(fileName, data) {
+// }
 
 // function to initialize program
-function init() {
+// function init() {
 
-}
+// }
 
 // function call to initialize program
-init();
+// init();
