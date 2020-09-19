@@ -9,7 +9,7 @@ const fs = require(fs);
 inquirer
 .prompt([
     {
-        message: 'Welcome to ReadMe Generator! What is the title of your app?',
+        message: 'Welcome to ReadMe Generator! What is the title of your project?',
         name: 'title',
     },
     {
@@ -29,18 +29,47 @@ inquirer
         name: 'usage',
     },
     {
-        message:'Enter your license',
+        message:'Enter your license', //need to put choices here? like license options and then they choose
         name: 'license',
     },
     {
-        message:'What is your title?',
-        name: 'What is your title?',
+        message:'Enter your contribution guidelines',
+        name: 'contribution',
     },
     {
-        message:'What is your title?',
-        name: '',
+        message:'Enter your test instructions',
+        name: 'test',
+    },
+    {
+        message:'Almost done! What is your GitHub username?',
+        name: 'github',
+    },
+    {
+        message:'What is your email address? (if you do not wish to include email, please enter "none")',
+        name: 'email',
+    },
+    {
+        message:'Last Question! Are there any instructions you want to give potential clients for how to contact you? (if not, please enter "none)',
+        name: 'instructions',
     },
 ])
+.then(answers => {
+
+    const {title, description, tableOfContents, installation, usage, license, contribution, test, github, email, instructions} = answers;
+
+    let doc = `#${title} \n
+    
+    
+    `;
+
+              
+    fs.writeFile('readme.md', doc, function(err){
+        if (err) {
+            return console.log(err);
+        } else {
+            console.log("file complete!")
+        }
+    })
 
 
 // function to write README file
