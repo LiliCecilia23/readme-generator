@@ -1,10 +1,5 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const markdown = require('./utils/generateMardown.js');
-// array of questions for user
-// const questions = [
-
-// ];
 
 inquirer
 .prompt([
@@ -15,10 +10,6 @@ inquirer
     {
         message:'What is the description?',
         name: 'description',
-    },
-    {
-        message:'Enter your table of contents',
-        name: 'tableOfContents',
     },
     {
         message:'Enter your installation instructions',
@@ -61,7 +52,7 @@ inquirer
 ])
 .then(answers => {
 
-    const {title, description, tableOfContents, installation, usage, licenseChoice, licenseInfo, contribution, test, github, email, instructions} = answers;
+    const {title, description, installation, usage, licenseChoice, licenseInfo, contribution, test, github, email, instructions} = answers;
 
     let license = '';
 
@@ -86,41 +77,12 @@ inquirer
             break;
     };
 
-    let doc = `
-        # title \n
-        \n
-        ${description}
-        \n
-        ## Table of Contents \n
-        * ${tableOfContents}
-        \n
-        ## Installation Instructions \n
-        \`\`\`
-        ${installation}
-        \`\`\`
-        \n
-        ## Instructions for Use \n
-        \`\`\`
-        ${usage}
-        \`\`\`
-        \n
-        ## Contribution Guidlines \n
-        ${contribution}
-        \n
-        ## Testing Instructions \n
-        ${test}
-        \n
-        ## Questions \n
-        * Github Username: ${github}
-        * Email: ${email}
-        * ${instructions}
-        \n
-        ## License\n
-        ${license}
-    `;
+    function generateMarkdown(answers) {
+        return `# ${title} \n ${description} \n ## Table of Contents \n * [Installation Instructions](#Installation-Instructions) \n * [Instructions for Use](#Instructions-for-Use) \n * [Contribution Guidelines](#Contribution-Guidelines) \n * [Testing Instructions](#Testing-Instructions) \n * [Questions](#Questions) \n * [License](#License) \n ## Installation Instructions \n ${installation} \n ## Instructions for Use \n ${usage} \n ## Contribution Guidelines  \n ${contribution} \n ## Testing Instructions \n ${test} \n ## Questions  \n * Github Username: ${github} \n * Email: ${email} \n * How to contact: ${instructions} \n ## License \n ${license}`;
+    }
 
               
-    fs.writeFile('SampleREADME.md', doc, function(err){
+    fs.writeFile('SampleREADME.md', generateMarkdown(answers), function(err){
         if (err) {
             return console.log(err);
         } else {
@@ -128,15 +90,3 @@ inquirer
         }
     })
 });
-
-// function to write README file
-// function writeToFile(fileName, data) {
-// }
-
-// function to initialize program
-// function init() {
-
-// }
-
-// function call to initialize program
-// init();
