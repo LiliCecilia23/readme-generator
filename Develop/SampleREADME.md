@@ -1,5 +1,5 @@
-# My App [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/) 
- woiejf 
+# Sample App [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0) 
+ This app does something! 
  ## Table of Contents 
  * [Installation Instructions](#Installation-Instructions) 
  * [Instructions for Use](#Instructions-for-Use) 
@@ -8,16 +8,16 @@
  * [Questions](#Questions) 
  * [License](#License) 
  ## Installation Instructions 
- joi 
+ Clone repo 
  ## Instructions for Use 
- jowiejg 
+ Run with node 
  ## Contribution Guidelines  
- owiejg 
+ Contribute! 
  ## Testing Instructions 
- owiejg 
+ Test it! 
  ## Questions  
- * Github Username: jowiejf 
- * Email: jowieg 
- * How to contact: joi 
+ * Github Username: lilicecilia23 
+ * Email: lili@fake.com 
+ * How to contact: call me! 
  ## License 
- Copyright (c) 2020 Lili Clift Licensed under The Unlicense license.
+ Copyright (c) 2020 Sample Name Licensed under the Mozilla Public License 2.0 license.
